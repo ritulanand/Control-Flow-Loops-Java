@@ -8,13 +8,13 @@
         if(a[midIndex] == x){
             return midIndex;
         }else if(a[midIndex] < x){
-            return binarySearchusingrecursion(a, midIndex + 1, ei, midIndex);
+            return binarySearchusingrecursion(a, midIndex + 1, ei, x);
         }else{
-            return binarySearchusingrecursion(a, si, midIndex -1, midIndex);
+            return binarySearchusingrecursion(a, si, midIndex -1, x);
         }
     }
     public static void main(String[] args) {
-        int a[] = {1,2,34,44,8};
-        System.out.println(binarySearchusingrecursion(a, 0, a.length -1, 38));
+        int a[] = {1,2,34,44,81};
+        System.out.println(binarySearchusingrecursion(a, 0, a.length -1, 81));
     }
 }
