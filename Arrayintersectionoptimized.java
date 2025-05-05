@@ -27,7 +27,7 @@ public class Arrayintersectionoptimized {
             arr2 = temp;
         }
 
-        Arrays.sort(arr2);
+        Arrays.sort(arr1);
         List<Integer> intersection = new ArrayList<>();
 
         // Perform binary search for each element in the larger array
