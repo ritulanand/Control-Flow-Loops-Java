@@ -12,14 +12,49 @@ class TraversalQueue {
     }
 
     private static void addAtIndex(Queue<Integer> q, int idx, int val) {
-        int n = q.size();
-        for (int i = 1; i <= idx; i++) {
-            q.add(q.remove());
+        if (idx < 0 || idx > q.size()) {
+            System.out.println("invalid index");
+            return;
         }
+        int n = q.size();
+        if (idx < n) {
+            for (int i = 1; i <= idx; i++) {
+                q.add(q.remove());
+            }
+        }
+
         q.add(val);
         for (int i = 1; i <= n - idx; i++) {
             q.add(q.remove());
         }
+    }
+
+    private static int peek(Queue<Integer> q, int idx) {
+        int n = q.size();
+        for (int i = 1; i <= idx; i++) {
+            q.add(q.remove());
+        }
+        System.out.println("peek" + " " + q.peek());
+        if (idx < n) {
+            for (int i = 1; i <= n - idx; i++) {
+                q.add(q.remove());
+            }
+        }
+        return q.peek();
+    }
+
+    private static int remove(Queue<Integer> q, int idx) {
+        int n = q.size();
+        for (int i = 1; i <= idx; i++) {
+            q.add(q.remove());
+        }
+        System.out.println("remove" + " " + q.remove());
+        if (idx < n) {
+            for (int i = 1; i <= q.size() - idx; i++) {
+                q.add(q.remove());
+            }
+        }
+        return q.peek();
     }
 
     public static void main(String[] args) {
@@ -31,6 +66,9 @@ class TraversalQueue {
         q.add(50);
         display(q);
         addAtIndex(q, 2, 60);
+        display(q);
+        peek(q, 2);
+        remove(q, 3);
         display(q);
     }
 }
